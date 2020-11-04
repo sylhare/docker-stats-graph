@@ -31,4 +31,4 @@ jobs:
         tox -e lint
     - name: Test with pytest
       run: |
-        pytest -e coverage
+        tox -e coverage
