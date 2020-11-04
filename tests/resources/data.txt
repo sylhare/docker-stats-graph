@@ -1,0 +1,21 @@
+CONTAINER ID        NAME                         CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+470f413fadfb        app-uno                      1.16%               429.9MiB / 7.638GiB   5.50%               1.08GB / 1.1GB      0B / 0B             73
+db0e33f8a929        app-dos                      0.39%               400.2MiB / 7.638GiB   5.12%               1.11GB / 1.07GB     0B / 0B             59
+e09e62d3523f        microservice                 0.24%               86.52MiB / 7.638GiB   1.11%               24.4MB / 13.8MB     0B / 0B             18
+493fe2c6a12d        another-microservice         0.08%               68.59MiB / 7.638GiB   0.88%               31.5MB / 17.6MB     0B / 0B             16
+94e273c68815        overlord-script              2.77%               459.6MiB / 7.638GiB   5.88%               7.23GB / 7.58GB     0B / 0B             103
+f0eab0746a84        no-idea-app                  0.69%               493.4MiB / 7.638GiB   6.31%               4.44GB / 4.27GB     0B / 0B             31
+CONTAINER ID        NAME                         CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+470f413fadfb        app-uno                      0.79%               429.9MiB / 7.638GiB   5.50%               1.08GB / 1.1GB      0B / 0B             73
+db0e33f8a929        app-dos                      0.46%               400.2MiB / 7.638GiB   5.12%               1.11GB / 1.07GB     0B / 0B             59
+e09e62d3523f        microservice                 0.20%               86.52MiB / 7.638GiB   1.11%               24.4MB / 13.8MB     0B / 0B             18
+493fe2c6a12d        another-microservice         0.07%               68.59MiB / 7.638GiB   0.88%               31.5MB / 17.6MB     0B / 0B             16
+94e273c68815        overlord-script              2.73%               459.6MiB / 7.638GiB   5.88%               7.23GB / 7.58GB     0B / 0B             103
+f0eab0746a84        no-idea-app                  0.73%               493.4MiB / 7.638GiB   6.31%               4.44GB / 4.27GB     0B / 0B             31
+CONTAINER ID        NAME                         CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+470f413fadfb        app-uno                      0.99%               429.9MiB / 7.638GiB   5.50%               1.08GB / 1.1GB      0B / 0B             73
+db0e33f8a929        app-dos                      0.53%               400.2MiB / 7.638GiB   5.12%               1.11GB / 1.07GB     0B / 0B             59
+e09e62d3523f        microservice                 0.24%               86.52MiB / 7.638GiB   1.11%               24.4MB / 13.8MB     0B / 0B             18
+493fe2c6a12d        another-microservice         0.10%               68.59MiB / 7.638GiB   0.88%               31.5MB / 17.6MB     0B / 0B             16
+94e273c68815        overlord-script              3.36%               459.6MiB / 7.638GiB   5.88%               7.23GB / 7.58GB     0B / 0B             103
+f0eab0746a84        no-idea-app                  0.70%               493.4MiB / 7.638GiB   6.31%               4.44GB / 4.27GB     0B / 0B             31

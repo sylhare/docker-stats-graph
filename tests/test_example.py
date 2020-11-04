@@ -1,6 +1,6 @@
 import unittest
 
-from src.app import hello, root_path
+from src.app import hello
 
 
 class ParserTest(unittest.TestCase):
@@ -10,9 +10,6 @@ class ParserTest(unittest.TestCase):
 
     def test_hello_world(self):
         self.assertEqual("Hello World!", hello())
-
-    def test_root_path(self):
-        self.assertTrue("python-seed-app" in root_path())
 
     def tearDown(self):
         print("Tear Down - After each Test\n")

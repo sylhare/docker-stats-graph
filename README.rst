@@ -1,37 +1,12 @@
-Python Seed App
-===============
+Docker Stats Graph
+==================
 
-Inspired by `MarshalJoe <https://github.com/MarshalJoe>`__
-
-This is a simple skeleton for a generic Python (3.6) app. It comes
-loaded with:
-
--  Project automation with
-   `tox <https://tox.readthedocs.io/en/latest/>`__
--  Test with `pytest <https://pytest.readthedocs.io/en/latest/>`__
--  Style with `pylint <https://pylint.readthedocs.io/en/latest/>`__
-
-As well a ``.gitignore``, ``.pylintrc`` config file, and simple
-directory structure.
+To plot docker stats into graph from multiple dockers.
 
 Get Started
 -----------
 
-You can fork the project and start your own with it.
-
-The source files represents a hello world and can be removed / modified.
-
-Setup
------
-
-Using Docker:
-
-.. code:: bash
-
-   # build the image:
-   docker build -t seed-app .
-   # Run image:
-   docker run -it seed-app
+TBD ...
 
 Testing
 -------
@@ -46,7 +21,7 @@ Use the ``dev-requirements.txt`` for libraries only used for tests or dev.
    tox
    # Run the linter:
    tox -e lint
-   # Runt the coverage on the src module
+   # Run the coverage on the src module
    pytest -e coverage
 
 
