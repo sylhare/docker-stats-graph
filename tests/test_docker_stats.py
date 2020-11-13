@@ -1,3 +1,4 @@
+import itertools
 import os
 import unittest
 
@@ -18,9 +19,12 @@ class ParserTest(unittest.TestCase):
         print(self.ds.df)
 
     def test_no_percentage(self):
-        self.assertTrue("%" not in self.ds.df['CPU %'][1], "% should not be in " + self.ds.df['CPU %'][1])
-        self.assertTrue("%" not in self.ds.df['MEM %'][1], "% should not be in " + self.ds.df['MEM %'][1])
+        self.assertTrue("%" not in self.ds.df["CPU %"][1], "% should not be in " + self.ds.df["CPU %"][1])
+        self.assertTrue("%" not in self.ds.df["MEM %"][1], "% should not be in " + self.ds.df["MEM %"][1])
 
+    def test_only_usage(self):
+        self.assertTrue("/" not in self.ds.df["MEM Usage"][1], "Only usage value in " + self.ds.df["MEM Usage"][1])
+        
 
 if __name__ == "__main__":
     unittest.main()

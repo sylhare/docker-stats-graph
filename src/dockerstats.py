@@ -1,3 +1,5 @@
+import itertools
+
 import pandas as pd
 
 
@@ -8,7 +10,12 @@ class DockerStats:
         self.df = pd.read_csv(data_path, delimiter=";", names=DockerStats.__header_list)
         self.df["CPU %"] = self.df["CPU %"].apply(self.__remove_percentage())
         self.df["MEM %"] = self.df["MEM %"].apply(self.__remove_percentage())
+        self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda value: self.__take_usage(value))
 
     @staticmethod
     def __remove_percentage():
         return lambda x: x.replace("%", "")
+
+    @staticmethod
+    def __take_usage(value):
+        return ''.join(itertools.takewhile(lambda letter: not letter == "/", value))
