@@ -1,4 +1,3 @@
-import itertools
 import os
 import unittest
 
@@ -24,7 +23,13 @@ class ParserTest(unittest.TestCase):
 
     def test_only_usage(self):
         self.assertTrue("/" not in self.ds.df["MEM Usage"][1], "Only usage value in " + self.ds.df["MEM Usage"][1])
-        
+
+    def test_separate_io(self):
+        self.assertEqual("106MB", self.ds.df["NET INPUT"][0])
+        self.assertEqual("2.17MB", self.ds.df["NET OUTPUT"][0])
+        self.assertEqual("262kB", self.ds.df["BLOCK INPUT"][0])
+        self.assertEqual("2.14MB", self.ds.df["BLOCK OUTPUT"][0])
+
 
 if __name__ == "__main__":
     unittest.main()

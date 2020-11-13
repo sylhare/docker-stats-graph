@@ -11,6 +11,8 @@ class DockerStats:
         self.df["CPU %"] = self.df["CPU %"].apply(self.__remove_percentage())
         self.df["MEM %"] = self.df["MEM %"].apply(self.__remove_percentage())
         self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda value: self.__take_usage(value))
+        self.df[["NET INPUT", "NET OUTPUT"]] = self.df["NET IO"].str.split(" / ", expand=True)
+        self.df[["BLOCK INPUT", "BLOCK OUTPUT"]] = self.df["BLOCK IO"].str.split(" / ", expand=True)
 
     @staticmethod
     def __remove_percentage():
