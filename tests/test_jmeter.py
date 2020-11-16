@@ -8,7 +8,7 @@ from src.jmeter import Jmeter
 class ParserTest(unittest.TestCase):
 
     def setUp(self):
-        path = os.path.join(ROOT_PATH, "tests", "resources", "output.csv")
+        path = os.path.join(ROOT_PATH, "tests", "resources", "output.jtl")
         print(path)
         self.jm = Jmeter(path)
 
@@ -19,9 +19,12 @@ class ParserTest(unittest.TestCase):
         self.assertEqual(77.211, self.jm.response_time_avg())
 
     def test_conversion_to_datetime(self):
-        print(self.jm.df["DATE"])
-        print(self.jm.df["DATE"][1])
+        self.assertEqual(12, self.jm.df["DATE"][1].hour)
+        self.assertEqual(49, self.jm.df["DATE"][1].minute)
+        self.assertEqual(8, self.jm.df["DATE"][1].second)
 
-        # self.assertEqual(22, self.jm.df["DATE"][0].hour)
-        # self.assertEqual(36, self.jm.df["DATE"][0].minute)
-        # self.assertEqual(29, self.jm.df["DATE"][0].second)
+    def test_duration(self):
+        self.assertEqual(0.15, self.jm.duration_min())
+
+    def test_tps_avg(self):
+        self.assertEqual(12.0, self.jm.tps_avg())
