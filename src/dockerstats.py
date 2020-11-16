@@ -4,6 +4,8 @@ import re
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from src import setup_plot
+
 
 class DockerStats:
     __header_list = ["NAME", "CPU %", "MEM %", "MEM Usage", "NET IO", "BLOCK IO", "PID", "DATE"]
@@ -23,7 +25,7 @@ class DockerStats:
         self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda x: self.__to_float_mb(x))
         self.df.drop(["NET IO", "BLOCK IO"], inplace=True, axis=1)
         self.df["DATE"] = pd.to_datetime(self.df["DATE"])
-        self.__setup_plot()
+        setup_plot()
 
     def plot_category(self, category):
         fig, ax = plt.subplots()
@@ -45,11 +47,6 @@ class DockerStats:
         else:
             add_on = " (MB)"
         return category + add_on
-
-    @staticmethod
-    def __setup_plot():
-        from pandas.plotting import register_matplotlib_converters
-        register_matplotlib_converters()
 
     @staticmethod
     def __percentage_to_float():

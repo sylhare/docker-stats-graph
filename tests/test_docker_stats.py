@@ -9,13 +9,11 @@ class ParserTest(unittest.TestCase):
 
     def setUp(self):
         path = os.path.join(ROOT_PATH, "tests", "resources", "data.csv")
-        print(path)
         self.ds = DockerStats(path)
 
     def test_dataframe_creation(self):
         self.assertFalse(0 == len(self.ds.df.values))
         self.assertFalse(0 == len(self.ds.df.keys()))
-        print(self.ds.df)
 
     def test_no_percentage(self):
         self.assertTrue(isinstance(self.ds.df["CPU %"][1], float))
@@ -41,7 +39,6 @@ class ParserTest(unittest.TestCase):
         self.assertTrue(isinstance(self.ds.df["BLOCK INPUT"][1], float))
 
     def test_conversion_to_datetime(self):
-        print(self.ds.df["DATE"])
         self.assertEqual(22, self.ds.df["DATE"][0].hour)
         self.assertEqual(36, self.ds.df["DATE"][0].minute)
         self.assertEqual(29, self.ds.df["DATE"][0].second)

@@ -9,7 +9,6 @@ class ParserTest(unittest.TestCase):
 
     def setUp(self):
         path = os.path.join(ROOT_PATH, "tests", "resources", "output.jtl")
-        print(path)
         self.jm = Jmeter(path)
 
     def test_latency(self):
@@ -27,4 +26,4 @@ class ParserTest(unittest.TestCase):
         self.assertEqual(0.15, self.jm.duration_min())
 
     def test_tps_avg(self):
-        self.assertEqual(12.0, self.jm.tps_avg())
+        self.assertEqual(10.9, self.jm.tps_avg())
