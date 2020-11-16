@@ -1,11 +1,13 @@
 import itertools
 import re
 
+import matplotlib.pyplot as plt
 import pandas as pd
 
 
 class DockerStats:
-    __header_list = ["Name", "CPU %", "MEM %", "MEM Usage", "NET IO", "BLOCK IO", "PID", "DATE"]
+    __header_list = ["NAME", "CPU %", "MEM %", "MEM Usage", "NET IO", "BLOCK IO", "PID", "DATE"]
+    __category = ["CPU %", "MEM %", "NET INPUT", "NET OUTPUT", "BLOCK INPUT", "BLOCK OUTPUT"]
 
     def __init__(self, data_path):
         self.df = pd.read_csv(data_path, delimiter=";", names=DockerStats.__header_list)
@@ -21,6 +23,33 @@ class DockerStats:
         self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda x: self.__to_float_mb(x))
         self.df.drop(["NET IO", "BLOCK IO"], inplace=True, axis=1)
         self.df["DATE"] = pd.to_datetime(self.df["DATE"])
+        self.__setup_plot()
+
+    def plot_category(self, category):
+        fig, ax = plt.subplots()
+        names = self.df["NAME"].unique()
+        self.df.reset_index().groupby('NAME').plot(x='DATE', y=category, ax=ax)
+        plt.legend(names, title='apps', bbox_to_anchor=(1.05, 1), loc='upper left')
+        plt.ylabel(self.__category_label(category))
+        plt.xlabel('Time')
+        plt.show()
+
+    def plot_category_all(self):
+        for category in self.__category:
+            self.plot_category(category)
+
+    @staticmethod
+    def __category_label(category):
+        if "%" in category:
+            add_on = ""
+        else:
+            add_on = " (MB)"
+        return category + add_on
+
+    @staticmethod
+    def __setup_plot():
+        from pandas.plotting import register_matplotlib_converters
+        register_matplotlib_converters()
 
     @staticmethod
     def __percentage_to_float():
