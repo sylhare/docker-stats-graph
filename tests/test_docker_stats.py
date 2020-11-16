@@ -18,17 +18,14 @@ class ParserTest(unittest.TestCase):
         print(self.ds.df)
 
     def test_no_percentage(self):
-        self.assertTrue("%" not in self.ds.df["CPU %"][1], "% should not be in " + self.ds.df["CPU %"][1])
-        self.assertTrue("%" not in self.ds.df["MEM %"][1], "% should not be in " + self.ds.df["MEM %"][1])
-
-    def test_only_usage(self):
-        self.assertTrue("/" not in self.ds.df["MEM Usage"][1], "Only usage value in " + self.ds.df["MEM Usage"][1])
+        self.assertTrue(isinstance(self.ds.df["CPU %"][1], float))
+        self.assertTrue(isinstance(self.ds.df["MEM %"][1], float))
 
     def test_separate_io(self):
-        self.assertEqual("106MB", self.ds.df["NET INPUT"][0])
-        self.assertEqual("2.17MB", self.ds.df["NET OUTPUT"][0])
-        self.assertEqual("262kB", self.ds.df["BLOCK INPUT"][0])
-        self.assertEqual("2.14MB", self.ds.df["BLOCK OUTPUT"][0])
+        self.assertEqual(106.0, self.ds.df["NET INPUT"][0])
+        self.assertEqual(2.17, self.ds.df["NET OUTPUT"][0])
+        self.assertEqual(0.262, self.ds.df["BLOCK INPUT"][0])
+        self.assertEqual(2.14, self.ds.df["BLOCK OUTPUT"][0])
 
     def test_mem_conversion_to_mb(self):
         self.assertTrue(isinstance(self.ds.df["MEM Usage"][1], float))

@@ -9,29 +9,29 @@ class DockerStats:
 
     def __init__(self, data_path):
         self.df = pd.read_csv(data_path, delimiter=";", names=DockerStats.__header_list)
-        self.df["CPU %"] = self.df["CPU %"].apply(self.__remove_percentage())
-        self.df["MEM %"] = self.df["MEM %"].apply(self.__remove_percentage())
+        self.df["CPU %"] = self.df["CPU %"].apply(self.__percentage_to_float())
+        self.df["MEM %"] = self.df["MEM %"].apply(self.__percentage_to_float())
         self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda value: self.__take_usage(value))
         self.df[["NET INPUT", "NET OUTPUT"]] = self.df["NET IO"].str.split(" / ", expand=True)
-        self.df["NET INPUT"] = self.df["NET INPUT"].apply(lambda x: self.__to_mb(x))
-        self.df["NET OUTPUT"] = self.df["NET OUTPUT"].apply(lambda x: self.__to_mb(x))
+        self.df["NET INPUT"] = self.df["NET INPUT"].apply(lambda x: self.__to_float_mb(x))
+        self.df["NET OUTPUT"] = self.df["NET OUTPUT"].apply(lambda x: self.__to_float_mb(x))
         self.df[["BLOCK INPUT", "BLOCK OUTPUT"]] = self.df["BLOCK IO"].str.split(" / ", expand=True)
-        self.df["BLOCK INPUT"] = self.df["BLOCK INPUT"].apply(lambda x: self.__to_mb(x))
-        self.df["BLOCK OUTPUT"] = self.df["BLOCK OUTPUT"].apply(lambda x: self.__to_mb(x))
-        self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda x: self.__to_mb(x))
-        self.df.drop(["NET IO", "BLOCK IO"],  inplace=True, axis=1)
+        self.df["BLOCK INPUT"] = self.df["BLOCK INPUT"].apply(lambda x: self.__to_float_mb(x))
+        self.df["BLOCK OUTPUT"] = self.df["BLOCK OUTPUT"].apply(lambda x: self.__to_float_mb(x))
+        self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda x: self.__to_float_mb(x))
+        self.df.drop(["NET IO", "BLOCK IO"], inplace=True, axis=1)
         self.df["DATE"] = pd.to_datetime(self.df["DATE"])
 
     @staticmethod
-    def __remove_percentage():
-        return lambda x: x.replace("%", "")
+    def __percentage_to_float():
+        return lambda x: float((x.replace("%", "")))
 
     @staticmethod
     def __take_usage(value):
         return ''.join(itertools.takewhile(lambda letter: not letter == "/", value))
 
     @staticmethod
-    def __to_mb(value):
+    def __to_float_mb(value):
         multi = 1.0
         value = str(value).upper()
         if "G" in value:
