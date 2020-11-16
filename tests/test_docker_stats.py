@@ -30,8 +30,8 @@ class ParserTest(unittest.TestCase):
         self.assertEqual("262kB", self.ds.df["BLOCK INPUT"][0])
         self.assertEqual("2.14MB", self.ds.df["BLOCK OUTPUT"][0])
 
-    def test_conversion_to_mb(self):
-        self.assertTrue( isinstance(self.ds.df["MEM Usage"][1], float))
+    def test_mem_conversion_to_mb(self):
+        self.assertTrue(isinstance(self.ds.df["MEM Usage"][1], float))
         self.assertEquals(7.465, self.ds.df["MEM Usage"][0])
         self.assertEquals(7465, self.ds.df["MEM Usage"][2])
         self.assertEquals(0.007465, self.ds.df["MEM Usage"][3])
@@ -43,7 +43,10 @@ class ParserTest(unittest.TestCase):
         self.assertTrue(isinstance(self.ds.df["BLOCK OUTPUT"][1], float))
         self.assertTrue(isinstance(self.ds.df["BLOCK INPUT"][1], float))
 
-
+    def test_conversion_to_datetime(self):
+        self.assertEqual(22, self.ds.df["DATE"][0].hour)
+        self.assertEqual(36, self.ds.df["DATE"][0].minute)
+        self.assertEqual(29, self.ds.df["DATE"][0].second)
 
 
 if __name__ == "__main__":

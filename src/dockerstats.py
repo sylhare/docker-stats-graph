@@ -19,6 +19,7 @@ class DockerStats:
         self.df["BLOCK INPUT"] = self.df["BLOCK INPUT"].apply(lambda x: self.__to_mb(x))
         self.df["BLOCK OUTPUT"] = self.df["BLOCK OUTPUT"].apply(lambda x: self.__to_mb(x))
         self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda x: self.__to_mb(x))
+        self.df["DATE"] = pd.to_datetime(self.df["DATE"])
 
     @staticmethod
     def __remove_percentage():
