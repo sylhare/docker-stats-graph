@@ -46,6 +46,10 @@ class ParserTest(unittest.TestCase):
     def test_duration_min(self):
         self.assertEquals(1, self.ds.duration_min())
 
+    def test_avg_values(self):
+        self.assertEqual(0.48, self.ds.memory_avg())
+        self.assertEqual(5.2, self.ds.cpu_avg())
+
 
 if __name__ == "__main__":
     unittest.main()

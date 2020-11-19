@@ -44,6 +44,12 @@ class DockerStats:
         delta = self.df["DATE"].iloc[-1] - self.df["DATE"][1]
         return round(delta.total_seconds() / 60, 1)
 
+    def cpu_avg(self):
+        return round(self.df["CPU %"].mean(), 2)
+
+    def memory_avg(self):
+        return round(self.df["MEM %"].mean(), 2)
+
     @staticmethod
     def __category_label(category):
         if "%" in category:
