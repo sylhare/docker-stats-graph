@@ -29,6 +29,11 @@ class Jmeter:
     def tps_avg(self):
         return self.tps["timeStamp"].mean()
 
+    def plot_success(self):
+        self.df["responseMessage"].groupby(self.df["responseMessage"]).count().plot(kind='pie', autopct='%1.1f%%')
+        plt.axis('equal')
+        plt.show()
+
     def plot_latency(self):
         fig, ax = plt.subplots()
         self.df.reset_index().plot(x='DATE', y="Latency", ax=ax)

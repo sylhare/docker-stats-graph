@@ -75,37 +75,37 @@ timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success
 1605548954064,83,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,43,0,0
 1605548954104,69,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,29,0,0
 1605548954147,71,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,31,0,0
-1605548954173,77,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,37,0,0
-1605548954218,71,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,32,0,0
-1605548954250,83,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,43,0,0
-1605548954289,94,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,54,0,0
-1605548954333,85,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,45,0,0
-1605548954383,84,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,44,0,0
-1605548954418,84,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,44,0,0
-1605548954468,70,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,31,0,0
-1605548954502,73,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,32,0,0
-1605548954538,70,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,30,0,0
-1605548954575,70,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,31,0,0
-1605548954608,83,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,43,0,0
-1605548954646,82,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,42,0,0
-1605548954691,82,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,42,0,0
-1605548954728,83,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,43,0,0
-1605548954773,67,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,27,0,0
-1605548954812,70,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,30,0,0
-1605548954840,72,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,33,0,0
-1605548954882,72,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,32,0,0
-1605548954912,86,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,46,0,0
-1605548954954,84,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,44,0,0
-1605548954998,83,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,43,0,1
-1605548955038,82,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,42,0,0
-1605548955081,86,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,46,0,0
-1605548957198,30,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,29,0,0
-1605548957198,42,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,42,0,0
-1605548957228,71,Request,200,OK,Thread Group 1-1,text,true,,556,0,2,2,null,31,0,0
-1605548957241,84,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,44,0,0
-1605548957300,70,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,30,0,0
-1605548957325,77,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,38,0,0
-1605548957370,67,Request,200,OK,Thread Group 1-1,text,true,,560,0,2,2,null,27,0,0
-1605548957402,69,Request,200,OK,Thread Group 1-2,text,true,,560,0,2,2,null,29,0,0
-1605548957437,84,Request,200,OK,Thread Group 1-1,text,true,,696,0,2,2,null,44,0,0
-1605548957471,66,Request,200,OK,Thread Group 1-2,text,true,,560,0,1,1,null,26,0,0
+1605548954173,77,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,37,0,0
+1605548954218,71,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,32,0,0
+1605548954250,83,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,43,0,0
+1605548954289,94,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,54,0,0
+1605548954333,85,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,45,0,0
+1605548954383,84,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,44,0,0
+1605548954418,84,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,44,0,0
+1605548954468,70,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,31,0,0
+1605548954502,73,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,32,0,0
+1605548954538,70,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,30,0,0
+1605548954575,70,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,31,0,0
+1605548954608,83,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,43,0,0
+1605548954646,82,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,42,0,0
+1605548954691,82,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,42,0,0
+1605548954728,83,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,43,0,0
+1605548954773,67,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,27,0,0
+1605548954812,70,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,30,0,0
+1605548954840,72,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,33,0,0
+1605548954882,72,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,32,0,0
+1605548954912,86,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,46,0,0
+1605548954954,84,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,44,0,0
+1605548954998,83,Request,200,SUCCESS,Thread Group 1-1,text,true,,560,0,2,2,null,43,0,1
+1605548955038,82,Request,200,SUCCESS,Thread Group 1-2,text,true,,560,0,2,2,null,42,0,0
+1605548955081,86,Request,500,ERROR,Thread Group 1-1,Test Failure Message,false,,560,0,2,2,null,46,0,0
+1605548957198,30,Request,500,ERROR,Thread Group 1-1,Test Failure Message,false,,560,0,2,2,null,29,0,0
+1605548957198,42,Request,500,ERROR,Thread Group 1-2,Test Failure Message,false,,560,0,2,2,null,42,0,0
+1605548957228,71,Request,500,ERROR,Thread Group 1-1,Test Failure Message,false,,556,0,2,2,null,31,0,0
+1605548957241,84,Request,500,ERROR,Thread Group 1-2,Test Failure Message,false,,560,0,2,2,null,44,0,0
+1605548957300,70,Request,500,ERROR,Thread Group 1-1,Test Failure Message,false,,560,0,2,2,null,30,0,0
+1605548957325,77,Request,500,ERROR,Thread Group 1-2,Test Failure Message,false,,560,0,2,2,null,38,0,0
+1605548957370,67,Request,500,ERROR,Thread Group 1-1,Test Failure Message,false,,560,0,2,2,null,27,0,0
+1605548957402,69,Request,500,ERROR,Thread Group 1-2,Test Failure Message,false,,560,0,2,2,null,29,0,0
+1605548957437,84,Request,500,ERROR,Thread Group 1-1,Test Failure Message,false,,696,0,2,2,null,44,0,0
+1605548957471,66,Request,500,ERROR,Thread Group 1-2,Test Failure Message,false,,560,0,1,1,null,26,0,0
