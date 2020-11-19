@@ -40,6 +40,10 @@ class DockerStats:
         for category in self.__category:
             self.plot_category(category)
 
+    def duration_min(self):
+        delta = self.df["DATE"].iloc[-1] - self.df["DATE"][1]
+        return round(delta.total_seconds() / 60, 1)
+
     @staticmethod
     def __category_label(category):
         if "%" in category:

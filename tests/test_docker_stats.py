@@ -43,6 +43,9 @@ class ParserTest(unittest.TestCase):
         self.assertEqual(36, self.ds.df["DATE"][0].minute)
         self.assertEqual(29, self.ds.df["DATE"][0].second)
 
+    def test_duration_min(self):
+        self.assertEquals(1, self.ds.duration_min())
+
 
 if __name__ == "__main__":
     unittest.main()
