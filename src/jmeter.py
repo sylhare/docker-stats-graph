@@ -66,7 +66,3 @@ class Jmeter:
 
         fig.tight_layout()
         plt.show()
-
-    @staticmethod
-    def __to_datetime(timestamp):
-        return datetime.datetime.fromtimestamp(timestamp / 1000.0)

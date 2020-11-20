@@ -1,5 +1,6 @@
 import os
 import unittest
+import warnings
 
 from src import ROOT_PATH
 from src.dockerstats import DockerStats
@@ -27,10 +28,10 @@ class ParserTest(unittest.TestCase):
 
     def test_mem_conversion_to_mb(self):
         self.assertTrue(isinstance(self.ds.df["MEM Usage"][1], float))
-        self.assertEquals(7.465, self.ds.df["MEM Usage"][0])
-        self.assertEquals(7465, self.ds.df["MEM Usage"][2])
-        self.assertEquals(0.007465, self.ds.df["MEM Usage"][3])
-        self.assertEquals(465, self.ds.df["MEM Usage"][1])
+        self.assertEqual(7.465, self.ds.df["MEM Usage"][0])
+        self.assertEqual(7465, self.ds.df["MEM Usage"][2])
+        self.assertEqual(0.007465, self.ds.df["MEM Usage"][3])
+        self.assertEqual(465, self.ds.df["MEM Usage"][1])
 
     def test_io_conversion_to_mb(self):
         self.assertTrue(isinstance(self.ds.df["NET OUTPUT"][1], float))
@@ -44,11 +45,16 @@ class ParserTest(unittest.TestCase):
         self.assertEqual(29, self.ds.df["DATE"][0].second)
 
     def test_duration_min(self):
-        self.assertEquals(1, self.ds.duration_min())
+        self.assertEqual(1, self.ds.duration_min())
 
     def test_avg_values(self):
         self.assertEqual(0.48, self.ds.memory_avg())
         self.assertEqual(5.2, self.ds.cpu_avg())
+
+    def test_plot(self):
+        warnings.filterwarnings("ignore")
+        self.ds.plot_category("MEM Usage")
+        self.ds.plot_category_all()
 
 
 if __name__ == "__main__":
