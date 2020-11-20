@@ -25,7 +25,6 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f dev-requirements.txt ]; then pip install -r dev-requirements.txt; fi
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        tox
     - name: Lint with tox
       run: |
         tox -e lint
