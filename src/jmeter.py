@@ -38,13 +38,15 @@ class Jmeter:
         fig, ax = plt.subplots()
         self.df.reset_index().plot(x='DATE', y="Latency", ax=ax)
         plt.xlabel('Time')
-        plt.xlabel('Latency ms')
+        plt.ylabel('Latency (ms)')
         plt.show()
 
     def plot_tps(self):
         fig, ax = plt.subplots()
         self.tps.plot(y="timeStamp", ax=ax)
         ax.legend(["tps"])
+        plt.xlabel('Time')
+        plt.ylabel('Transaction per seconds')
         plt.show()
 
     def plot_both(self):
