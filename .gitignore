@@ -137,3 +137,6 @@ MANIFEST
 *.pyc
 scripts/data.csv
 scripts/dockerstats
+data/*
+
+*tps.ipynb
