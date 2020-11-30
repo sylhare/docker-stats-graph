@@ -30,7 +30,7 @@ class DockerStats:
     def plot_category(self, category, size=(10, 5)):
         fig, ax = plt.subplots(figsize=size)
         names = self.df["NAME"].unique()
-        d = self.df.reset_index().groupby('NAME').plot(x='DATE', y=category, ax=ax)
+        self.df.reset_index().groupby('NAME').plot(x='DATE', y=category, ax=ax)
         plt.legend(names, title='apps', bbox_to_anchor=(1.05, 1), loc='upper left')
         plt.ylabel(self.__category_label(category))
         plt.xlabel('Time')
@@ -39,6 +39,9 @@ class DockerStats:
     def plot_category_all(self):
         for category in self.__category:
             self.plot_category(category)
+
+    def mean_for_apps(self):
+        return self.df.groupby(['NAME']).mean().apply(lambda x: round(x,2))
 
     def duration_min(self):
         delta = self.df["DATE"].iloc[-1] - self.df["DATE"][1]

@@ -51,6 +51,9 @@ class ParserTest(unittest.TestCase):
         self.assertEqual(0.48, self.ds.memory_avg())
         self.assertEqual(5.2, self.ds.cpu_avg())
 
+    def test_mean_for_apps(self):
+        self.assertEqual(2, len(self.ds.mean_for_apps().values))
+
     def test_plot(self):
         warnings.filterwarnings("ignore")
         self.ds.plot_category("MEM Usage")

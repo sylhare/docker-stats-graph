@@ -43,6 +43,7 @@ class Jmeter:
         fig, ax = plt.subplots(figsize=size)
         self.df.reset_index().plot(x='timeStamp', y="Latency", ax=ax)
         ax.legend(["Latency"])
+        plt.legend(loc='upper left')
         plt.xlabel('Time')
         plt.ylabel('Latency (ms)')
         plt.show()
@@ -50,6 +51,7 @@ class Jmeter:
     def plot_tps(self):
         fig, ax = plt.subplots(figsize=(20, 10))
         self.tps.plot(y="timeStamp", ax=ax, color='Red')
+        plt.legend(loc='upper left')
         ax.legend(["tps"])
         plt.xlabel('Time')
         plt.ylabel('Transaction per seconds')
