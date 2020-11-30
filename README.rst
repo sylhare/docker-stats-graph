@@ -67,7 +67,9 @@ Some of the source I use for the `docker stats` command.
 - Documentation from docker_
 - Article on analyzing-docker-container-performance-native-tools_
 - Article on monitoring-docker_
+- Datascience Handbook_
 
 .. _analyzing-docker-container-performance-native-tools: https://crate.io/a/analyzing-docker-container-performance-native-tools/
 .. _docker: https://docs.docker.com/engine/reference/commandline/stats/
 .. _monitoring-docker: http://www.zakariaamine.com/2019-12-04/monitoring-docker
+.. _Handbook: https://jakevdp.github.io/PythonDataScienceHandbook/
