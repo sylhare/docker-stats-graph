@@ -34,23 +34,29 @@ class Jmeter:
         plt.axis('equal')
         plt.show()
 
-    def plot_latency(self):
-        fig, ax = plt.subplots()
-        self.df.reset_index().plot(x='DATE', y="Latency", ax=ax)
+    def plot_label(self):
+        self.df["label"].groupby(self.df["label"]).count().plot(kind='pie', autopct='%1.1f%%')
+        plt.axis('equal')
+        plt.show()
+
+    def plot_latency(self, size=(20, 10)):
+        fig, ax = plt.subplots(figsize=size)
+        self.df.reset_index().plot(x='timeStamp', y="Latency", ax=ax)
+        ax.legend(["Latency"])
         plt.xlabel('Time')
         plt.ylabel('Latency (ms)')
         plt.show()
 
     def plot_tps(self):
-        fig, ax = plt.subplots()
-        self.tps.plot(y="timeStamp", ax=ax)
+        fig, ax = plt.subplots(figsize=(20, 10))
+        self.tps.plot(y="timeStamp", ax=ax, color='Red')
         ax.legend(["tps"])
         plt.xlabel('Time')
         plt.ylabel('Transaction per seconds')
         plt.show()
 
-    def plot_both(self):
-        fig, ax1 = plt.subplots()
+    def plot_both(self, size=(10, 5)):
+        fig, ax1 = plt.subplots(figsize=size)
 
         color = 'tab:red'
         ax1.set_xlabel('time')

@@ -35,3 +35,4 @@ class ParserTest(unittest.TestCase):
         self.jm.plot_tps()
         self.jm.plot_both()
         self.jm.plot_success()
+        self.jm.plot_label()

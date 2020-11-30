@@ -27,10 +27,10 @@ class DockerStats:
         self.df["DATE"] = pd.to_datetime(self.df["DATE"])
         setup_plot()
 
-    def plot_category(self, category):
-        fig, ax = plt.subplots()
+    def plot_category(self, category, size=(10, 5)):
+        fig, ax = plt.subplots(figsize=size)
         names = self.df["NAME"].unique()
-        self.df.reset_index().groupby('NAME').plot(x='DATE', y=category, ax=ax)
+        d = self.df.reset_index().groupby('NAME').plot(x='DATE', y=category, ax=ax)
         plt.legend(names, title='apps', bbox_to_anchor=(1.05, 1), loc='upper left')
         plt.ylabel(self.__category_label(category))
         plt.xlabel('Time')
