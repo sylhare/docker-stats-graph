@@ -27,7 +27,7 @@ class ParserTest(unittest.TestCase):
         self.assertEqual(0.15, self.jm.duration_min())
 
     def test_tps_avg(self):
-        self.assertEqual(10.9, self.jm.tps_avg())
+        self.assertEqual(11.0, self.jm.tps_avg())
 
     def test_plot(self):
         warnings.filterwarnings("ignore")

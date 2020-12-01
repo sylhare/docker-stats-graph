@@ -27,7 +27,7 @@ class Jmeter:
         return round(delta / 1000 / 60, 2)
 
     def tps_avg(self):
-        return self.tps["timeStamp"].mean()
+        return round(self.tps["timeStamp"].mean())
 
     def plot_success(self):
         self.df["responseMessage"].groupby(self.df["responseMessage"]).count().plot(kind='pie', autopct='%1.1f%%')

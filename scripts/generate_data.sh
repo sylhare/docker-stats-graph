@@ -11,3 +11,6 @@ do docker stats --no-stream --format "table {{.Name}};{{.CPUPerc}};{{.MemPerc}};
 tail -n +2 dockerstats | awk -v date=";$(date +%T)" '{print $0, date}' >> data.csv
 sleep 5
 done
+
+cat data.csv
+rm -rf dockerstats
