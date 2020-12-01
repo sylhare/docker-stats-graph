@@ -12,15 +12,17 @@ class Jmeter:
         self.df = self.df.iloc[1:]
         self.df["DATE"] = pd.to_datetime(self.df["timeStamp"], unit='ms').apply(
             lambda x: x - datetime.timedelta(hours=5))
+        self.df_ms = self.df.copy()
         setup_plot()
-        self.dt = self.df.set_index('DATE').resample('s')
-        self.tps = self.dt.count()
+        self.df = self.df.set_index('DATE').resample('s')
+        self.tps = self.df.count()
+        self.df = self.df.mean()
 
     def latency_avg(self):
-        return round(self.df["Latency"].mean(), 3)
+        return round(self.df_ms["Latency"].mean(), 3)
 
     def response_time_avg(self):
-        return round(self.df["elapsed"].mean(), 3)
+        return round(self.df_ms["elapsed"].mean(), 3)
 
     def duration_min(self):
         delta = self.df["timeStamp"].iloc[-1] - self.df["timeStamp"][1]
@@ -30,18 +32,19 @@ class Jmeter:
         return round(self.tps["timeStamp"].mean())
 
     def plot_success(self):
-        self.df["responseMessage"].groupby(self.df["responseMessage"]).count().plot(kind='pie', autopct='%1.1f%%')
+        self.df_ms["responseMessage"].groupby(self.df_ms["responseMessage"]).count().plot(kind='pie',
+                                                                                          autopct='%1.1f%%')
         plt.axis('equal')
         plt.show()
 
     def plot_label(self):
-        self.df["label"].groupby(self.df["label"]).count().plot(kind='pie', autopct='%1.1f%%')
+        self.df_ms["label"].groupby(self.df_ms["label"]).count().plot(kind='pie', autopct='%1.1f%%')
         plt.axis('equal')
         plt.show()
 
     def plot_latency(self, size=(20, 10)):
         fig, ax = plt.subplots(figsize=size)
-        self.df.reset_index().plot(x='timeStamp', y="Latency", ax=ax)
+        self.df.reset_index().plot(x='DATE', y="Latency", ax=ax)
         ax.legend(["Latency"])
         plt.legend(loc='upper left')
         plt.xlabel('Time')
@@ -63,14 +66,14 @@ class Jmeter:
         color = 'tab:red'
         ax1.set_xlabel('time')
         ax1.set_ylabel('Latency (ms)', color=color)
-        self.dt.mean().fillna(0).plot(y="Latency", ax=ax1, color=color, label="latency")
+        self.df.fillna(0).plot(y="Latency", ax=ax1, color=color, label="latency")
         plt.legend(loc='upper left')
         ax1.tick_params(axis='y', labelcolor=color)
 
         ax2 = ax1.twinx()
         color = 'tab:blue'
         ax2.set_ylabel('t p s', color=color)  # we already handled the x-label with ax1
-        self.dt.count().plot(y="timeStamp", ax=ax2, color=color, label="tps")
+        self.df.plot(y="timeStamp", ax=ax2, color=color, label="tps")
         ax2.tick_params(axis='y', labelcolor=color)
         plt.legend(loc='upper right')
 

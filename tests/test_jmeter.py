@@ -19,12 +19,12 @@ class ParserTest(unittest.TestCase):
         self.assertEqual(77.211, self.jm.response_time_avg())
 
     def test_conversion_to_datetime(self):
-        self.assertEqual(12, self.jm.df["DATE"][1].hour)
-        self.assertEqual(49, self.jm.df["DATE"][1].minute)
-        self.assertEqual(8, self.jm.df["DATE"][1].second)
+        self.assertEqual(12, self.jm.df_ms["DATE"][1].hour)
+        self.assertEqual(49, self.jm.df_ms["DATE"][1].minute)
+        self.assertEqual(8, self.jm.df_ms["DATE"][1].second)
 
     def test_duration(self):
-        self.assertEqual(0.15, self.jm.duration_min())
+        self.assertEqual(0.13, self.jm.duration_min())
 
     def test_tps_avg(self):
         self.assertEqual(11.0, self.jm.tps_avg())
