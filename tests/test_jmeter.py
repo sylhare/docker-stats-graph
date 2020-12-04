@@ -29,6 +29,10 @@ class ParserTest(unittest.TestCase):
     def test_tps_avg(self):
         self.assertEqual(11.0, self.jm.tps_avg())
 
+    def test_median(self):
+        self.assertEqual(12.0, self.jm.tps_median())
+        self.assertEqual(33.0, self.jm.latency_median())
+
     def test_plot(self):
         warnings.filterwarnings("ignore")
         self.jm.plot_latency()

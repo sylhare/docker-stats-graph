@@ -21,6 +21,9 @@ class Jmeter:
     def latency_avg(self):
         return round(self.df_ms["Latency"].mean(), 3)
 
+    def latency_median(self):
+        return round(self.df_ms["Latency"].median(), 3)
+
     def response_time_avg(self):
         return round(self.df_ms["elapsed"].mean(), 3)
 
@@ -30,6 +33,9 @@ class Jmeter:
 
     def tps_avg(self):
         return round(self.tps["timeStamp"].mean())
+
+    def tps_median(self):
+        return round(self.tps["timeStamp"].median())
 
     def plot_success(self):
         self.df_ms["responseMessage"].groupby(self.df_ms["responseMessage"]).count().plot(kind='pie',
