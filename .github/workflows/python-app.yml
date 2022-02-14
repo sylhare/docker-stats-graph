@@ -28,6 +28,7 @@ jobs:
     - name: Lint with tox
       run: |
         tox -e lint
+      continue-on-error: true
     - name: Test with pytest
       run: |
         tox -e coverage
