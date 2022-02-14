@@ -11,7 +11,7 @@ To plot docker stats into graph from multiple dockers.
 Get Started
 -----------
 
-Run the scrips/generate_data.sh, this will produce a data.csv that will be used to create the graphs.
+Run the ``scrips/generate_data.sh``, this will produce a data.csv that will be used to create the graphs.
 
 
 Docker Stats Info
@@ -53,8 +53,7 @@ Use the ``dev-requirements.txt`` for libraries only used for tests or dev.
 Misc Notes
 ----------
 
--  Make sure and edit the package title in ``setup.py`` to reflect your
-   app name
+
 -  If you have issue with tox and ``ModuleNotFoundError``, try set
    ``recreate`` to ``True`` in ``tox.ini``.
 
