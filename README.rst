@@ -13,6 +13,16 @@ Get Started
 
 Run the ``scrips/generate_data.sh``, this will produce a data.csv that will be used to create the graphs.
 
+Then to use or plot the data:
+
+.. code:: python
+
+   from src.dockerstats import *
+   ds = DockerStats("tests/resources/data.csv")
+   ds.plot_category_all()
+ 
+See https://sylhare.github.io/docker-stats-graph/ for a worked example.
+
 
 Docker Stats Info
 -----------------
