@@ -31,6 +31,9 @@ class DockerStats:
         fig, ax = plt.subplots(figsize=size)
         names = self.df["NAME"].unique()
         self.df.reset_index().groupby('NAME').plot(x='DATE', y=category, ax=ax)
+
+        # groupby sorts the names so this is necessary too in order for the legend to be in the right order
+        names.sort()
         plt.legend(names, title='apps', bbox_to_anchor=(1.05, 1), loc='upper left')
         plt.ylabel(self.__category_label(category))
         plt.xlabel('Time')
