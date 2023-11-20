@@ -3,6 +3,7 @@ import re
 
 import matplotlib.pyplot as plt
 import pandas as pd
+from matplotlib.animation import FuncAnimation
 
 from src import setup_plot
 
@@ -12,7 +13,12 @@ class DockerStats:
     __category = ["CPU %", "MEM %", "NET INPUT", "NET OUTPUT", "BLOCK INPUT", "BLOCK OUTPUT"]
 
     def __init__(self, data_path):
-        self.df = pd.read_csv(data_path, delimiter=";", names=DockerStats.__header_list)
+        setup_plot()
+        self.data_path = data_path
+        self.load_data()
+
+    def load_data(self):
+        self.df = pd.read_csv(self.data_path, delimiter=";", names=DockerStats.__header_list)
         self.df["CPU %"] = self.df["CPU %"].apply(self.__percentage_to_float())
         self.df["MEM %"] = self.df["MEM %"].apply(self.__percentage_to_float())
         self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda value: self.__take_usage(value))
@@ -25,16 +31,37 @@ class DockerStats:
         self.df["MEM Usage"] = self.df["MEM Usage"].apply(lambda x: self.__to_float_mb(x))
         self.df.drop(["NET IO", "BLOCK IO"], inplace=True, axis=1)
         self.df["DATE"] = pd.to_datetime(self.df["DATE"])
-        setup_plot()
 
-    def plot_category(self, category, size=(10, 5)):
-        fig, ax = plt.subplots(figsize=size)
+    def prep_fix_and_ax(self, size):
+        self.fig, self.ax = plt.subplots(figsize=size)
 
         # Leave more space for the legend
         plt.subplots_adjust(right=0.7)
 
+    def plot_category(self, category, size=(10, 5)):
+        self.prep_fix_and_ax(size=size)
+        self._do_plot_category(category=category)
+        plt.show()
+
+    def plot_category_live(self, category, size=(10, 5), update_interval_ms=10000):
+
+        self.prep_fix_and_ax(size=size)
+        self._do_plot_category(category=category)
+
+        def _update(_):
+            # In lieu of something clever that updates the data in each of `self.ax.get_lines()`
+            # instead just clear and re-plot the whole thing which is fine for slow refresh rates
+            self.load_data()
+            self.ax.clear()
+            self._do_plot_category(category=category)
+
+        animation = FuncAnimation(self.fig, _update, interval=update_interval_ms, cache_frame_data=False)
+        plt.show()
+
+
+    def _do_plot_category(self, category):
         names = self.df["NAME"].unique()
-        self.df.reset_index().groupby('NAME').plot(x='DATE', y=category, ax=ax)
+        self.df.reset_index().groupby('NAME').plot(x='DATE', y=category, ax=self.ax, marker="+")
 
         # groupby sorts the names so this is necessary too in order for the legend to be in the right order
         names.sort()
@@ -42,8 +69,7 @@ class DockerStats:
 
         plt.ylabel(self.__category_label(category))
         plt.xlabel('Time')
-
-        plt.show()
+        plt.grid(alpha=0.5)
 
     def plot_category_all(self):
         for category in self.__category:
